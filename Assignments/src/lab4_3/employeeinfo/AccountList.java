@@ -25,7 +25,7 @@ public class AccountList {
 	
 	public boolean find(Account s){
 		for(Account key : strArray) {
-			if(key.compareTo(s) == 1)
+			if(key.equals(s))
 				return true;
 		}
 		return false;
@@ -50,7 +50,7 @@ public class AccountList {
 		//last element is still being duplicated when shifting
 		//should be handled
 		for(int i = 0 ; i < size; i++) {
-			if(strArray[i].compareTo(s) == 1) {
+			if(strArray[i].equals(s)) {
 				System.arraycopy(strArray, i+1, strArray, i, size - 1);
 				//set duplicate last element to null and decrement size by 1
 				strArray[--size] = null;
@@ -62,7 +62,7 @@ public class AccountList {
 	
 	
 	private void resize(){
-		System.out.println("Resizing...");
+		//System.out.println("Resizing...");
 		
 		Account[] temp = new Account[size * 2];
 		System.arraycopy(strArray, 0, temp, 0, size);

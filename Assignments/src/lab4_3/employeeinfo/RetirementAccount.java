@@ -5,6 +5,7 @@ public class RetirementAccount extends Account {
 	public RetirementAccount(Employee e, double amount) {
 		super(e, amount);
 	}
+	@Override
 	public AccountType getAcctType() {
 		return AccountType.RETIREMENT;
 	}

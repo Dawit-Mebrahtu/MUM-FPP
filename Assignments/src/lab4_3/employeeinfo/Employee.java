@@ -1,10 +1,6 @@
 package lab4_3.employeeinfo;
 
 import java.time.LocalDate;
-//import java.util.Date;
-//import java.util.GregorianCalendar;
-
-import lab3_1.AccountType;
 import lab4_3.MyStringList;
 
 public class Employee {
@@ -16,6 +12,7 @@ public class Employee {
 	public Employee(String name, int yearOfHire, int monthOfHire, int dayOfHire){
 		this.name = name;
 		hireDate = LocalDate.of(yearOfHire, monthOfHire, dayOfHire);
+		accounts = new AccountList();
 	}
 	
 	public String getName() {
@@ -53,7 +50,7 @@ public class Employee {
 		
 		for(int i = 0; i < accounts.size(); ++i) {
 			if(accounts.get(i) != null)
-				output = String.format("%s%n", accounts.get(i).toString());
+				output += String.format("%s%n", accounts.get(i).toString());
 		}
 		
 		return  output;
@@ -83,8 +80,7 @@ public class Employee {
 	public MyStringList getNamesOfAccounts() {
 		MyStringList acctNameList = new MyStringList();
 		for(int i = 0; i < accounts.size(); ++i) {
-			//acctNameList.add(accounts.get(i).);
-			
+			acctNameList.add(accounts.get(i).getAcctType().toString());
 		}
 		return acctNameList;
 	}

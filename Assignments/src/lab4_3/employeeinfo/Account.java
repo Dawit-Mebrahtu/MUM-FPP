@@ -1,6 +1,6 @@
 package lab4_3.employeeinfo;
 
-class Account implements Comparable<Account>{
+abstract class Account{
 	private final static double DEFAULT_BALANCE = 0.0;
 	private double balance;
 	//private AccountType acctType;
@@ -16,6 +16,7 @@ class Account implements Comparable<Account>{
 		this(emp, DEFAULT_BALANCE);
 	}
 
+	abstract AccountType getAcctType();
 	/*
 	public AccountType getAccountType() {
 		return acctType;
@@ -48,13 +49,36 @@ class Account implements Comparable<Account>{
 		}
 		return false;
 	}
+	
+	public String toString() {
+		return "Account type: " + getAcctType().toString() + "\n Current bal: $" + balance;
+	}
 
 	@Override
-	public int compareTo(Account o) {
-		if(this.equals(o.employee.getName()))
-			return 1;
-		return 0;
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(balance);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Account other = (Account) obj;
+		if (Double.doubleToLongBits(balance) != Double.doubleToLongBits(other.balance))
+			return false;
+		return true;
+	}
+
+	
 	
 
 	

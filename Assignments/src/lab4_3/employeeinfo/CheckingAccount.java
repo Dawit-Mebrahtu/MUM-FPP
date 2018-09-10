@@ -6,6 +6,7 @@ public class CheckingAccount extends Account {
 		super(e, amount);
 	}
 	
+	@Override
 	public AccountType getAcctType() {
 		return AccountType.CHECKING;
 	}

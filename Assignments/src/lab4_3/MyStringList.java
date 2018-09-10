@@ -62,7 +62,7 @@ public class MyStringList {
 	
 	
 	private void resize(){
-		System.out.println("Resizing...");
+		//System.out.println("Resizing...");
 		
 		String[] temp = new String[size * 2];
 		System.arraycopy(strArray, 0, temp, 0, size);

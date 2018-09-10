@@ -2,7 +2,8 @@ package lab4_3;
 
 import java.util.Scanner;
 
-import lab3_2.employeeinfo.Employee;
+import lab4_3.employeeinfo.AccountList;
+import lab4_3.employeeinfo.Employee;
 
 public class Main {
 	Employee[] emps = null;
@@ -27,26 +28,69 @@ public class Main {
 		emps[2].createNewRetirement(9000);
 
 		Scanner sc = new Scanner(System.in);
-		String n = System.getProperty("line.separator");
+		//String n = System.getProperty("line.separator");
 		displayOptions();
 		String response = "Y";
-		while (!response.equalsIgnoreCase("N")) {
-			response = sc.nextLine();
+		response = sc.nextLine();
 
-			if (response.equalsIgnoreCase("A")) {
+		if (response.equalsIgnoreCase("A")) {
+			formattedAccountInfo();
+		} else if (response.equalsIgnoreCase("B")) {
+			displayEmployees();
+			
+			int empIndex = Integer.parseInt(sc.nextLine());
+			displayAccounts(empIndex);
+			int acctIndex = Integer.parseInt(sc.nextLine());
+			
+			System.out.println("\n Deposit amount: ");
+			double amt = Double.parseDouble(sc.nextLine());
+			
+			emps[empIndex].deposit(acctIndex, amt);
+			
+			System.out.println("$" + amt + " has been deposited in the " + findAccount(empIndex, acctIndex) + " account of " + emps[empIndex].getName() );
+			//AccountList act = (AccountList)emps[empIndex].getNamesOfAccounts().get(i);
+			//System.out.println(emps[empIndex].getNamesOfAccounts().get(i));
 
-				formattedAccountInfo();
-
-			} else if (response.equalsIgnoreCase("B")) {
-				displayEmployees();
-
-			} else if (response.equalsIgnoreCase("C")) {
-				displayEmployees();
-			} else {
-				System.out.println(n + "I did not understand your response." + n);
-				displayOptions();
-			}
+		} else if (response.equalsIgnoreCase("C")) {
+			displayEmployees();
+			int empIndex = Integer.parseInt(sc.nextLine());
+			displayAccounts(empIndex);
+			int acctIndex = Integer.parseInt(sc.nextLine());
+			
+			System.out.println("\n Withdraw amount: ");
+			double amt = Double.parseDouble(sc.nextLine());
+			
+			emps[empIndex].deposit(acctIndex, amt);
+			
+			System.out.println("$" + amt + " has been withdrawn from the " + findAccount(empIndex, acctIndex) + " account of " + emps[empIndex].getName() );
+			
+			
+		}  else {
+			System.out.println("\n I did not understand your response.");
+			displayOptions();
 		}
+		
+//		while (!response.equalsIgnoreCase("N")) {
+//			response = sc.nextLine();
+//
+//			if (response.equalsIgnoreCase("A")) {
+//
+//				formattedAccountInfo();
+//
+//			} else if (response.equalsIgnoreCase("B")) {
+//				displayEmployees();
+//
+//			} else if (response.equalsIgnoreCase("C")) {
+//				displayEmployees();
+//			} else if(Character.isDigit(response.trim().charAt(0))){  
+//				int index =Integer.parseInt(response);
+//				displayAccounts(index);
+//			}else {
+//				System.out.println(n + "I did not understand your response." + n);
+//				displayOptions();
+//			}
+//		}
+		
 		sc.close();
 	}
 
@@ -78,10 +122,19 @@ public class Main {
 		System.out.print("Select an employee: (type a number)");
 	}
 
-	void displayAccounts() {
-		for (int i = 0; i < emps.length; i++) {
-			System.out.println(i + ". " + emps[i].getName());
+	void displayAccounts(int i) {
+		MyStringList accts = emps[i].getNamesOfAccounts();
+		
+		for(int j = 0; j < accts.size(); ++j) {
+			System.out.println(j + ". " + accts.get(j));
 		}
-		System.out.print("Select an employee: (type a number)");
+		System.out.print("Select an account: (type a number)");
 	}
+	
+	String findAccount(int i, int k) {
+		MyStringList accts = emps[i].getNamesOfAccounts();
+		return accts.get(k);
+	}
+	
+	
 }

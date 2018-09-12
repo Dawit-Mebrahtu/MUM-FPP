@@ -25,7 +25,7 @@ class Account {
 	}
 	
 	public String toString() {
-		return "type = " + acctType + ", balance = " + balance;
+		return "Account type = " + acctType + ", balance = " + balance;
 	}
 
 	//update the balance field

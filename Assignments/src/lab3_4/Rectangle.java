@@ -1,8 +1,8 @@
 package lab3_4;
 
 public final class Rectangle implements GeometricShapes {
-	private double width;
-	private double length;
+	private final double width;
+	private final double length;
 	
 	public Rectangle(double width, double length) {
 		this.width = width;

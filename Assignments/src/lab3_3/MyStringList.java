@@ -47,6 +47,8 @@ public class MyStringList {
 	}
 	
 	public boolean remove(String s){
+		if(size == 0)
+			return false;
 		//last element is still being duplicated when shifting
 		//should be handled
 		for(int i = 0 ; i < size; i++) {
@@ -74,7 +76,7 @@ public class MyStringList {
 		for(i = 0; i < size - 1; ++i) {
 				sb.append(strArray[i] + ", ");
 		}
-		sb.append(strArray[size - 1]);
+		sb.append(strArray[size -1]);
 		return "[" +  sb + "]";
 	}
 	public int size() {

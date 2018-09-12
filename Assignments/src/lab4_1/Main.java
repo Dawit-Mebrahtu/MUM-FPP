@@ -21,7 +21,7 @@ public class Main {
 		department[3] = s1;
 		department[4] = s2;
 		
-		System.out.println("Do you wish to see the sum of all salaries:");
+		System.out.println("Do you wish to see the sum of all salaries (Y/N):");
 		String reply = input.nextLine();
 		
 		double salarySum = 0;

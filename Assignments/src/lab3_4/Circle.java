@@ -1,7 +1,7 @@
 package lab3_4;
 
 public final class Circle implements GeometricShapes {
-	private double radius;
+	private final double radius;
 	
 	public Circle(double radius) {
 		this.radius = radius;

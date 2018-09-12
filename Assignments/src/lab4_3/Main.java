@@ -60,10 +60,11 @@ public class Main {
 			System.out.println("\n Withdraw amount: ");
 			double amt = Double.parseDouble(sc.nextLine());
 			
-			emps[empIndex].deposit(acctIndex, amt);
-			
-			System.out.println("$" + amt + " has been withdrawn from the " + findAccount(empIndex, acctIndex) + " account of " + emps[empIndex].getName() );
-			
+			boolean status = emps[empIndex].withdraw(acctIndex, amt);
+			if(status)
+				System.out.println("$" + amt + " has been withdrawn from the " + findAccount(empIndex, acctIndex) + " account of " + emps[empIndex].getName() );
+			else
+				System.out.println("Sorry! You do not have sufficent funds");
 			
 		}  else {
 			System.out.println("\n I did not understand your response.");

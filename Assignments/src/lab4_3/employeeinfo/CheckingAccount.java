@@ -5,6 +5,9 @@ public class CheckingAccount extends Account {
 	public CheckingAccount(Employee e, double amount) {
 		super(e, amount);
 	}
+	public CheckingAccount(Employee e) {
+		super(e);
+	}
 	
 	@Override
 	public AccountType getAcctType() {

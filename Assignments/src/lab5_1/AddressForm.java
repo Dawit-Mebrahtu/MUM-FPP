@@ -100,7 +100,7 @@ public class AddressForm extends JFrame {
 	private void initializeWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Address Form");		
-		setSize(550,150);
+		setSize(450,175);
 		handleWindowClosing();
 		centerFrameOnDesktop(this);
 		setResizable(false);

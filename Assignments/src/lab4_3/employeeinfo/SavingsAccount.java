@@ -6,6 +6,10 @@ public class SavingsAccount extends Account {
 	public SavingsAccount(Employee e, double amount) {
 		super(e, amount);
 	}
+	
+	public SavingsAccount(Employee e) {
+		super(e);
+	}
 	@Override
 	public AccountType getAcctType() {
 		return AccountType.SAVING;

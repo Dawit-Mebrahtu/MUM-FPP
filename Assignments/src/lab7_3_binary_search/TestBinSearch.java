@@ -8,7 +8,7 @@ public class TestBinSearch extends TestCase {
 		String input = "abcdefghijklmn";
 		BinSearch bs = new BinSearch();
 		
-		//assertTrue(bs.search(input, 'd'));
+		assertTrue(bs.search(input, 'd'));
 		assertTrue(bs.search(input, 'x'));
 		
 	}

@@ -1,7 +1,5 @@
 package lab7_4.dividesort;
 
-import lab7_2.MinSort;
-
 public class DivideSort {
 
 	String divideSort(String s) {
@@ -10,7 +8,7 @@ public class DivideSort {
 		int len = s.length();
 		int mid = len/2;
 		
-		String sleft = sort(s.substring(0, mid - 1));
+		String sleft = sort(s.substring(0, mid));
 		String sright = sort(s.substring(mid, len));
 		
 		return new Merge().merge(sleft, sright);
@@ -43,7 +41,7 @@ public class DivideSort {
 	
 	public static void main(String[] args) {
 		DivideSort ms = new DivideSort();
-		String result = ms.divideSort("zwxuabfkafutbbbb");
+		String result = ms.divideSort("dawit");
 		System.out.println(result);
 	}
 

@@ -229,28 +229,35 @@ public class MyStringLinkedList {
 	}
 	
 	public static void main(String[] args) {
-		MyStringLinkedList list = new MyStringLinkedList();
-		list.addFirst("A");
-		list.addFirst("B");
+		MyStringLinkedList l = new MyStringLinkedList();
+		l.addLast("big");
+		l.addLast("small");
+		l.addLast("tall");
+		l.addLast("short");
+		l.addLast("square");
+		l.addLast("round");
+		l.addLast("enormous");
+		l.addLast("tiny");
+		l.addLast("gargantuan");
+		l.addLast("lilliputian");
+		l.addLast("numberless");
+		l.addLast("none");
+		l.addLast("vase");
+		l.addLast("miniscule");
+		System.out.println("Before sort:");
+		l.printNodes();
+		System.out.println("After sort:");
+		l.sort();
+		l.printNodes();
 		
-		list.addLast("C");
+		System.out.println(l.search("number"));
+		System.out.println(l.search("tiny"));
 		
-		list.insert("D", 1);
-		list.insert("E", 3);
-		list.insert("F", 5);
-		list.printNodes();
 		
-		//System.out.println(list.remove("B"));
-		System.out.println(list.remove("D"));
-		System.out.println(list.remove("X"));
-		list.printNodes();
-		
-		System.out.println(list.recurSearch("F"));
-		list.sort();
-		list.printNodes();
-		
-		System.out.println(list.search("D"));
-		
+		System.out.println(l.remove("big"));
+		l.printNodes();
+		System.out.println(l.recurSearch("none"));
+		System.out.println(l.recurSearch("None"));
 	}
 }
 

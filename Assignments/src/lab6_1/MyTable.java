@@ -1,6 +1,5 @@
 package lab6_1;
 
-import javax.swing.JOptionPane;
 
 public class MyTable {
 	private Entry[] entries = new Entry[26];

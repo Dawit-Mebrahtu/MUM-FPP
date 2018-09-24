@@ -3,9 +3,8 @@ package lab7_3_binary_search;
 public class BinSearch {
 
 	public boolean search(String s, char c) {
-		if(s == null || s.length() == 0)
-			return false;
-		
+		if(s == null || s.isEmpty()) return false;
+		if(s.length() == 1) return s.charAt(0) == c;
 		int mid = s.length()/2;
 		if(c == s.charAt(mid))
 			return true;
